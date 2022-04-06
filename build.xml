@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><project name="dita2gettingstarted-mmpdf" basedir="." default="dita2gettingstarted-mmpdf">
+<!-- To rename the plugin and transformation type, rename the containing folder, change all occurences of gettingstarted-mmpdf in build.xml, plugin.xml and conductor.xml -->
+
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<!-- dita2gettingstarted-mmpdf calls gettingstarted-mmpdf.dita2miramoxml then miramoxml2pdf. Removes temporary folder if clean.temp=yes -->
+      <target name="dita2gettingstarted-mmpdf" depends="gettingstarted-mmpdf-init,mmpdf-init,mmpdf:check-params,gettingstarted-mmpdf.dita2miramoxml,miramoxml2pdf">
+			<delete xmlns:ns0="ant:if" dir="${dita.temp.dir}" ns0:true="${clean.temp}"/>
+	</target>
+	
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<target name="gettingstarted-mmpdf-init">
+		<!-- add build parameter overrides here. 
+			Default to using local cfg/strings folder for localization-strings -->
+		<property name="this.plugin.dir" value="${dita.plugin.com.miramo.gettingstarted-mmpdf.dir}"/>		
+		<property name="mmpdf:localization-strings.dir" value="${dita.plugin.com.miramo.gettingstarted-mmpdf.dir}${file.separator}cfg${file.separator}strings"/>
+		<property name="mmpdf:mfd.dir" value="${dita.plugin.com.miramo.gettingstarted-mmpdf.dir}${file.separator}mmtemplates"/>
+	</target>
+	
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<target name="gettingstarted-mmpdf.dita2miramoxml" depends="map2merged, copyTopicIfNoMap, gettingstarted-mmpdf.merged2miramoxml">
+		<echo>gettingstarted-mmpdf.dita2miramoxml: clean.temp=${clean.temp} dita.temp.dir=${dita.temp.dir}</echo>
+		<delete xmlns:ns0="ant:if" dir="${dita.temp.dir}" ns0:true="${clean.temp}"/>
+	</target>
+	
+	<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+	<target name="gettingstarted-mmpdf.merged2miramoxml" description="Generate MiramoXML from merged XML via ${transtype}" depends="merged2miramoxml">
+		<!-- 
+						
+			If you have added your own build parameters which need to be passed as XSL stylesheet parameters to the dita2miramo.xsl stylesheet, do the following:
+			
+			- uncomment the section below and modify as required
+			- remove the 'depends="merged2miramoxml" from the line above 
+			
+		-->
+		
+		<!-- UNCOMMENT THIS SECTION to add your own build parameters
+		<echo>gettingstarted-mmpdf.merged2miramoxml: Mapping merged dita to MiramoXML ... images.dir=${mmpdf:images.dir}</echo>
+		<echo>Using root XSL stylesheet ${dita2miramo.xsl}</echo> 
+		
+		<xslt in="${topic.merged.file}" out="${miramoxml.file}" style="${dita2miramo.xsl}">
+
+			<xmlcatalog refid="dita.catalog"/>
+			<param name="transtype" expression="${transtype}"/>
+			<param name="images.dir" expression="${mmpdf:images.dir}"/>
+			<param name="images.suffix" expression="${mmpdf:images.suffix}"/>
+			<param name="defaultImageUnits" expression="${mmpdf:defaultImageUnits}"/>
+			<param name="showStatus" expression="${mmpdf:showStatus}"/>
+			<param name="includeCover" expression="${mmpdf:includeCover}"/>
+			<param name="includeTOC" expression="${mmpdf:includeTOC}"/>
+			<param name="includeBackCover" expression="${mmpdf:includeBackCover}"/>
+			<param name="includeIndex" expression="${mmpdf:includeIndex}"/>
+			<param name="metadataprecedence" expression="${mmpdf:metadataprecedence}"/>
+			<param name="defaultCellVerticalAlignment" expression="${mmpdf:defaultCellVerticalAlignment}"/>
+			<param name="defaultImageAlignment" expression="${mmpdf:defaultImageAlignment}"/>
+			<param name="args.rellinks" expression="${args.rellinks}"/>
+			<param name="args.draft" expression="${args.draft}"/>
+			<param name="formatSectionTitleAsTopicTitle" expression="${mmpdf:formatSectionTitleAsTopicTitle}"/>
+			<param name="mfd.file.path" expression="${mfd.file.path}"/>
+			<param name="tableBorders" expression="${mmpdf:tableBorders}"/>
+			<param name="localization-strings.dir" expression="${mmpdf:localization-strings.dir}"/>
+			<param name="formatDefinitionsAsTable" expression="${mmpdf:formatDefinitionsAsTable}"/>
+			<param name="formatGlossaryAsTable" expression="${mmpdf:formatGlossaryAsTable}"/>
+			<param name="shrinkImagesToFit" expression="${mmpdf:shrinkImagesToFit}"/>
+			<param name="includeChapterTOC" expression="${mmpdf:includeChapterTOC}"/>
+			<param name="contentsDef" expression="${mmpdf:contentsDef}"/>
+			<param name="indexDef" expression="${mmpdf:indexDef}"/>
+			<param name="chapterContentsDef" expression="${mmpdf:chapterContentsDef}"/>
+			<param name="userVariable1" expression="${mmpdf:userVariable1}"/>
+			<param name="userVariable2" expression="${mmpdf:userVariable2}"/>
+		  <param name="inlineImageVerticalShift" expression="${mmpdf:inlineImageVerticalShift}"/>
+
+		</xslt>
+	-->
+	
+	</target>
+
+	
+</project>

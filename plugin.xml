@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><!-- To rename the plugin and transformation type, rename the containing folder, change all occurences of gettingstarted-mmpdf in build.xml, plugin.xml and conductor.xml --><plugin id="com.miramo.gettingstarted-mmpdf">
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <!-- add gettingstarted-mmpdf as a new transformation type -->
+  
+  <transtype name="gettingstarted-mmpdf" desc="com.miramo.gettingstarted-mmpdf plugin" extends="com.miramo.mmpdf">
+   <!-- com.miramo.mmpdf parameters will be available to this plugin -->
+  </transtype>
+  
+  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+  <feature extension="dita.conductor.target.relative" file="conductor.xml"/>
+  <feature extension="dita.conductor.transtype.check" value="gettingstarted-mmpdf"/>
+  <feature extension="dita.transtype.print" value="gettingstarted-mmpdf"/>  
+  <require plugin="com.miramo.mmpdf"/>
+   
+  </plugin>

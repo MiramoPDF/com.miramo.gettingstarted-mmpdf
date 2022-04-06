@@ -1,0 +1,3 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?><!-- To rename the plugin and transformation type, rename the containing folder, change all occurences of gettingstarted-mmpdf in build.xml, plugin.xml and conductor.xml --><project name="com.miramo.gettingstarted-mmpdf.conductor">
+  <import file="build.xml"/>
+</project>

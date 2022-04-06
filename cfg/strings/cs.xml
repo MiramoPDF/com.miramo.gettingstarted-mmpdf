@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+*** IMPORTANT ***
+Do not modify this file in plugin:com.miramo.mmpdf, make a customization (see GettingStarted.pdf) and modify the 
+language files there.
+
+This file is used to populate MiramoDesigner language independent <VarDef>s, as follows:
+    
+If present, @dita-ot-id specifies the DITA-OT language variable or string id to look up, defined in:
+    plugin:org.dita.base:xsl/common/strings-*.xml
+    plugin:org.dita.pdf2/cfg/common/vars/*.xml
+(or as overridden by your plugin)
+
+If no @dita-ot-id is specified, the value used for the @name <VarDef> is the value contained within the <str>..</str> element
+        --><strings xml:lang="cs">
+<str id="lang-figure">Obrázek</str>
+<str id="lang-table">Tabulka</str>
+<str id="lang-chapter">Kapitola</str>
+<str id="lang-appendix">Dodatek</str>
+<str id="lang-page">stránka</str>
+<str id="lang-optional">Volitelné:</str>
+<str id="lang-required">Požadované:</str>
+<str id="lang-glossary">Slovníček</str>
+<str id="lang-listoftables">Tabulky</str>
+<str id="lang-listoffigures">Obrázky</str>
+<str id="lang-onpage">na stránce</str>
+<str id="lang-prereq" dita-ot-id="task_prereq"/>
+<str id="lang-postreq" dita-ot-id="task_postreq"/>
+<str id="lang-example" dita-ot-id="task_example"/>
+<str id="lang-context" dita-ot-id="task_context"/>
+<str id="lang-procedure" dita-ot-id="task_procedure"/>
+<str id="lang-procedure-unordered" dita-ot-id="task_procedure_unordered"/>
+<str id="lang-results" dita-ot-id="task_results"/>
+<str id="lang-note" dita-ot-id="Note"/>
+<str id="lang-preface" dita-ot-id="Preface title"/>
+<str id="lang-notices" dita-ot-id="Notices title"/>
+<str id="lang-notes" dita-ot-id="Notes"/>
+<str id="lang-tip" dita-ot-id="Tip"/>
+<str id="lang-fastpath" dita-ot-id="Fastpath"/>
+<str id="lang-notice" dita-ot-id="Notice"/>
+<str id="lang-important" dita-ot-id="Important"/>
+<str id="lang-attention" dita-ot-id="Attention"/>
+<str id="lang-caution" dita-ot-id="Caution"/>
+<str id="lang-danger" dita-ot-id="Danger"/>
+<str id="lang-remember" dita-ot-id="Remember"/>
+<str id="lang-other">[other]</str>
+<str id="lang-trouble">Trouble</str>
+<str id="lang-restriction" dita-ot-id="Restriction"/>
+<str id="lang-warning" dita-ot-id="Warning"/>
+<str id="lang-contents" dita-ot-id="Contents"/>
+<str id="lang-index" dita-ot-id="Index"/>
+<str id="lang-listoftables" dita-ot-id="List of Tables"/>
+<str id="lang-listoffigures" dita-ot-id="List of Figures"/>
+<str id="lang-glossary" dita-ot-id="Glossary"/>
+<str id="lang-obsolete">Obsolete:</str>
+<str id="lang-deprecated">Deprecated:</str>
+<str id="lang-default">Default:</str>
+<str id="lang-low">Low:</str>
+<str id="lang-normal">Normal:</str>
+<str id="lang-high">High:</str>
+<str id="lang-recommended">Recommended:</str>
+<str id="lang-urgent">Urgent:</str>
+<str id="metadata-separator">, </str>
+<str id="lang-note-separator" dita-ot-id="#note-separator"/>
+</strings>
