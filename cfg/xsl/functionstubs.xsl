@@ -43,8 +43,29 @@
   		<!-- Default is to use DocumentColor1 spec from MFD template -->
   		<xsl:otherwise/>
   	</xsl:choose>
-  		
-  	
+    
+    <!-- Define new fontDef (could also be created in MFD template) which includes support for left pointing
+      arrow, and renders the glyph in a different color (DocumentColor1) -->
+    <FontDef fontDef="arrowFont" fontFamily="Arial" fontWeight="Regular" fontAngle="Regular" textColor="DocumentColor1"/>
+    <!-- Map instances of unicode arrow characters to equivalent code points in Arial font -->
+    <MapChar id="#x25C4"><Font fontDef="arrowFont" >&#x25C4;</Font></MapChar>
+    <MapChar id="#x25BA"><Font fontDef="arrowFont" >&#x25BA;</Font></MapChar>
+    <MapChar id="#x25B2"><Font fontDef="arrowFont" >&#x25B2;</Font></MapChar>
+    <MapChar id="#x25BC"><Font fontDef="arrowFont" >&#x25BC;</Font></MapChar>
+    
+    <!--  
+      Create lang-date DataDef formatted as appropriate for document language:
+      
+      For English, the definition must be: monthName dayNumber, year
+      For German, the definition must be: dayNumber. monthName year
+      For Japanese, the definition must be: year/monthNumber01/dayNumber01
+    -->
+    <xsl:choose>
+      <xsl:when test="starts-with($documentXmlLang , 'de')"><DateDef dateDef="lang-date" language="newGerman"><dayNumber/>.<monthName/>.<year/></DateDef></xsl:when>
+      <xsl:when test="starts-with($documentXmlLang, 'ja')"><DateDef dateDef="lang-date" language="Japanese"><year/>/<monthNumber01/><dayNumber01/></DateDef></xsl:when>
+      <xsl:otherwise><!-- use default defined in MFD template --></xsl:otherwise>
+    </xsl:choose>
+    
   </xsl:template>
   
 </xsl:stylesheet>

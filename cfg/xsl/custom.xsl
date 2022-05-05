@@ -8,42 +8,30 @@
     >
   <xsl:include href="./functionstubs.xsl"/> 
   
-  <!-- Support for <entry> @outputclass='subhead': provide overrides for standard
-  makeOneRow (handles keep with next) and mm:cellAttributesFromOutputClass (applies
-  custom table cell formatting 
+  <!-- Support for <row> @outputclass='subhead': provide overrides for 
+    addCustomRowAttributes (handles keep with next) and 
+    addCustomCellAttributes (applies custom table cell formatting)
   MiramoXML attribute names and values are specified in the mmComposer Reference Guide
   -->
  
   <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <!-- Override makeOneRow utility to check for <entry> @outputclass=subheading to set keepWithNext property
-    to prevent orphaned subheadings -->
-  <xsl:template name="makeOneRow">
-    <xsl:param name="type"/>
-    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <Row type="{$type}">
-      <xsl:call-template name="addRowAttributes"/>
+  <!-- Override addCustomRowAttributes extension point to check for @outputclass=subheading to set keepWithNext property
+    to prevent orphaned subheading rows -->
+  <xsl:template name="addCustomRowAttributes">
       <xsl:if test="*[@outputclass='subheading']">
         <xsl:attribute name="withNext">Y</xsl:attribute>
       </xsl:if>
-      <xsl:apply-templates/>
-    </Row>		
   </xsl:template>
-  
-  <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-  <!-- Override mm:cellAttributesFromOutputClass utility to set paragraph format to tableHeader, switch off row shading and add ruling.
-       -->
-  <xsl:function name="mm:cellAttributesFromOutputClass" as="node()*">
-    <xsl:param name="outputclass" as="xs:string?"/>
-    <xsl:param name="node" as="node()"/>
-    <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
-    <xsl:if test="contains($node/@outputclass, 'subheading')">
+   
+  <!-- Override addCustomRowAttributes extension point to check for @outputclass=subheading on parent to set cell formatting attributes -->
+  <xsl:template name="addCustomCellAttributes">
+    <xsl:if test="contains(../@outputclass, 'subheading')">
       <xsl:attribute name="paraDef">tableHeader</xsl:attribute>
       <xsl:attribute name="fillColor">none</xsl:attribute>
       <xsl:attribute name="topRule">Very Thin</xsl:attribute>
       <xsl:attribute name="bottomRule">Very Thin</xsl:attribute>
-      <xsl:attribute name="topMargin">8pt</xsl:attribute>
+      <xsl:attribute name="topMargin">8pt</xsl:attribute>     
     </xsl:if>
-  </xsl:function>
-  
+  </xsl:template>
   
 </xsl:stylesheet>
