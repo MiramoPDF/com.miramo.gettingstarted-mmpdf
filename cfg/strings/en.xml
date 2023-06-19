@@ -62,4 +62,5 @@ If no @dita-ot-id is specified, the value used for the @name <VarDef> is the val
 <str id="lang-urgent">Urgent:</str>
 <str id="metadata-separator">, </str>
 <str id="lang-note-separator" dita-ot-id="#note-separator"/>
+<str id="lang-related" dita-ot-id="Related information"/>
 </strings>

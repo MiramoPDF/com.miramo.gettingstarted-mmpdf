@@ -13,6 +13,7 @@
 			Default to using local cfg/strings folder for localization-strings -->
 		<property name="this.plugin.dir" value="${dita.plugin.com.miramo.gettingstarted-mmpdf.dir}"/>		
 		<property name="mmpdf:localization-strings.dir" value="${dita.plugin.com.miramo.gettingstarted-mmpdf.dir}${file.separator}cfg${file.separator}strings"/>
+		<property name="mmpdf:images.dir" value="${dita.plugin.com.miramo.gettingstarted-mmpdf.dir}${file.separator}images"/>
 		<property name="mmpdf:mfd.dir" value="${dita.plugin.com.miramo.gettingstarted-mmpdf.dir}${file.separator}mmtemplates"/>
 	</target>
 	

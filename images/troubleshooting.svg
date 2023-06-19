@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- 'tip' / 'information' sign/icon (circle with Consolas Bold 'i' inside) -->
+
+<svg xmlns="http://www.w3.org/2000/svg"
+   height="550"
+   width="627"
+   viewBox="0 0 627 550"
+   >
+   	<!--
+	<rect width="100%" height="100%" fill="#dddddd" />
+   	-->
+	<circle
+		style="
+			fill:#000088;
+			fill-opacity:1;
+			stroke:#000088;
+			stroke-width: 65 ;
+			stroke-opacity:1
+			"
+		cx="314"
+		cy="274"
+		r="229"
+		/>
+
+	<!-- Spanner -->
+	<path
+		transform="translate(152, 114)"
+		style="
+			fill: #ffffff ;
+			fill-opacity: 1 ;
+			"
+		d="
+			m	64.21, 4.87 
+				50, 50
+				-15.62, 43.72 
+				-43.72, 15.62
+
+			L 4.87, 64.21
+
+			c	-10.97, 32.79
+				-3.42, 70.42
+				22.69, 96.53
+				25.63, 25.63
+				62.35, 33.37
+				94.70, 23.28
+				1.07, 1.36
+				2.22, 2.676
+				3.476, 3.93
+
+			l 112.64, 112.64
+
+			c	17.18, 17.18  
+				45, 17.18
+				62.2,  0
+				17.18, -17.18
+				17.18, -45
+				0,  -62.2
+
+			l -112.64, -112.64
+
+			c	-1.254, -1.254
+				-2.57,-2.404
+				-3.93,-3.475
+				10.092, -32.355
+				2.347,-69.07
+				-23.28, -94.70
+				-26.11,-26.11
+				-63.74,-33.661
+				-96.55,-22.69
+		z
+		"
+		/>
+
+</svg>

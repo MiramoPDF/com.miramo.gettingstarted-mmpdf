@@ -18,7 +18,7 @@
   <!-- Override addCustomRowAttributes extension point to check for @outputclass=subheading to set keepWithNext property
     to prevent orphaned subheading rows -->
   <xsl:template name="addCustomRowAttributes">
-      <xsl:if test="*[@outputclass='subheading']">
+      <xsl:if test="@outputclass = 'subheading' or *[@outputclass='subheading']">
         <xsl:attribute name="withNext">Y</xsl:attribute>
       </xsl:if>
   </xsl:template>
@@ -28,10 +28,15 @@
     <xsl:if test="contains(../@outputclass, 'subheading')">
       <xsl:attribute name="paraDef">tableHeader</xsl:attribute>
       <xsl:attribute name="fillColor">none</xsl:attribute>
-      <xsl:attribute name="topRule">Very Thin</xsl:attribute>
+      <xsl:attribute name="topRule">Thin</xsl:attribute>
       <xsl:attribute name="bottomRule">Very Thin</xsl:attribute>
       <xsl:attribute name="topMargin">8pt</xsl:attribute>     
     </xsl:if>
   </xsl:template>
   
+  <xsl:template name="addCustomParagraphAttributes">
+    <xsl:if test="contains(@outputclass, 'mmpdf:skipFloats:')">
+      <xsl:attribute name="skipFloats"><xsl:value-of select="mm:getKeyValue('mmpdf:skipFloats:', @outputclass)"/></xsl:attribute>
+    </xsl:if>
+  </xsl:template>
 </xsl:stylesheet>
